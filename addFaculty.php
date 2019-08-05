@@ -39,9 +39,10 @@ and open the template in the editor.
             </select></br>
             <input type="submit" value="Submit" /></br></br></br>
         </form>
-        <form method="POST" action="addFacultyToDB.php" >
+        <form>
             <h3>Edit course</h3>
-            Select a faculty <select id="editCourseFacultyId" onChange="this.form.submit()">
+            Select a faculty <select name="editCourseFacultyId" onChange="this.form.submit()">
+                <option value="" disabled selected>---Please select a course---</option>
                 <?php
                 require('db_connect.php');
                 $facultyCodeQuery = "SELECT facultyCode FROM faculties";
@@ -52,17 +53,14 @@ and open the template in the editor.
             </select></br>
             
         </form>
-        <script>
-            var drop = $('#editCourseFacultyId');
-            var form 
-        </script>
+        
         <form method="POST" action="addFacultyToDB.php">
             Select a course <select name="courseId">
                 <?php
                 require('db_connect.php');
-                session_start();
+                //session_start();
                 //$facultyId = $_SESSION["editCourseFacultyId"];
-                $facultyId = $_POST['editCourseFacultyId'];
+                $facultyId = $_GET['editCourseFacultyId'];
                 $courseIdQuery = "SELECT courseId FROM courses WHERE faculty = '$facultyId'";
                 foreach ($dbConn->query($courseIdQuery) as $row) {
                     echo "<option value=$row[courseId]>$row[courseId]</option>";
