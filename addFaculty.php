@@ -15,9 +15,22 @@ and open the template in the editor.
             <h3>Create new faculty</h3>
             Enter faculty code: <input type="text" name="facultyCode" value="" /><br />
             Enter faculty name: <input type="text" name="facultyName" value="" /><br />
-            <input type="submit" value="Submit" /></br><br /><br />
+            <input type="submit" name="submitFaculty" value="Submit" /></br>
+            <?php
+            $facultyXML = new DOMDocument();
+            $facultyXML->load('faculties.xml');
+
+            $facultyXSL = new DOMDocument;
+            $facultyXSL->load('faculties.xsl');
+
+            $proc = new XSLTProcessor();
+            $proc->importStyleSheet($facultyXSL);
+
+            echo $proc->transformToXML($facultyXML);
+            ?>
+            </br></br></br>
         </form>
-        
+
         <form method="POST" action="addFacultyToDB.php">
             <h3>Create new course</h3>
             Enter course id: <input type="text" name="courseId" value="" /><br />
@@ -51,9 +64,9 @@ and open the template in the editor.
                 }
                 ?>
             </select></br>
-            
+
         </form>
-        
+
         <form method="POST" action="addFacultyToDB.php">
             Select a course <select name="courseId">
                 <?php
