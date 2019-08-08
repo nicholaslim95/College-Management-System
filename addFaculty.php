@@ -17,7 +17,7 @@ and open the template in the editor.
             Enter faculty name: <input type="text" name="facultyName" value="" /><br />
             <input type="submit" value="Submit" /></br><br /><br />
         </form>
-        
+
         <form method="POST" action="addFacultyToDB.php">
             <h3>Create new course</h3>
             Enter course id: <input type="text" name="courseId" value="" /><br />
@@ -51,9 +51,9 @@ and open the template in the editor.
                 }
                 ?>
             </select></br>
-            
+
         </form>
-        
+
         <form method="POST" action="addFacultyToDB.php">
             Select a course <select name="courseId">
                 <?php
