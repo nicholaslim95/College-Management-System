@@ -55,6 +55,20 @@ and open the template in the editor.
             </form>
             <p>&nbsp;</p>
             <h3>
+            <?php
+            $shortlitsXML = new DOMDocument();
+            $shortlitsXML->load('shortlists.xml');
+
+            $shortlistsXSL = new DOMDocument;
+            $shortlistsXSL->load('shortlists.xsl');
+
+            $proc = new XSLTProcessor();
+            $proc->importStyleSheet($shortlistsXSL);
+
+            echo $proc->transformToXML($shortlistsXML);
+            ?>
+            </h3>
+            <h3>
                 <?php
                 //delete row on button delete click and show alert
                 if (isset($_GET["short"])) {

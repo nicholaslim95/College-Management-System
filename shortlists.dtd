@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT shortlists (shortlist)*>
+<!ELEMENT shortlist (courseId , courseName)>
+<!ATTLIST shortlist courseId ID #REQUIRED>
+<!ELEMENT courseId (#PCDATA)>
+<!ELEMENT courseName (#PCDATA)>
+
