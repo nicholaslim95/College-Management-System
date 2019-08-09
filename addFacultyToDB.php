@@ -16,32 +16,32 @@ require('db_connect.php');
 //    die;
 //}
 
-if (isset($_POST['submitFaculty'])) {
-    $xml = new DOMDocument("1.0");
-    $xml->preserveWhiteSpace = false;
-    $xml->formatOutput = true;
-    $xml->load("faculties.xml");
-
-    $rootTag = $xml->getElementsByTagName("faculties")->item(0);
-
-    $facultyCodeForXML = $_POST['facultyCode'];
-    $dataTag = $xml->createElement("faculty");
-    $facultyAttribute = $xml->createAttribute('facultyCode');
-    $facultyAttribute->value = $facultyCodeForXML;
-    $facultyCodeTag = $xml->createElement("facultyCode", $_POST['facultyCode']);
-    $facultyNameTag = $xml->createElement("facultyName", $_POST['facultyName']);
-
-    
-    $dataTag->appendChild($facultyCodeTag);
-    $dataTag->appendChild($facultyNameTag);
-    $dataTag->appendChild($facultyAttribute);
-
-    $rootTag->appendChild($dataTag);
-
-    $xml->save("faculties.xml");
-    
-    //uploadToMySql($xml);
-}
+//if (isset($_POST['submitFaculty'])) {
+//    $xml = new DOMDocument("1.0");
+//    $xml->preserveWhiteSpace = false;
+//    $xml->formatOutput = true;
+//    $xml->load("faculties.xml");
+//
+//    $rootTag = $xml->getElementsByTagName("faculties")->item(0);
+//
+//    $facultyCodeForXML = $_POST['facultyCode'];
+//    $dataTag = $xml->createElement("faculty");
+//    $facultyAttribute = $xml->createAttribute('facultyCode');
+//    $facultyAttribute->value = $facultyCodeForXML;
+//    $facultyCodeTag = $xml->createElement("facultyCode", $_POST['facultyCode']);
+//    $facultyNameTag = $xml->createElement("facultyName", $_POST['facultyName']);
+//
+//    
+//    $dataTag->appendChild($facultyCodeTag);
+//    $dataTag->appendChild($facultyNameTag);
+//    $dataTag->appendChild($facultyAttribute);
+//
+//    $rootTag->appendChild($dataTag);
+//
+//    $xml->save("faculties.xml");
+//    
+//    //uploadToMySql($xml);
+//}
 
 function uploadToMySql($uploadXML){
     foreach ($uploadXML -> $item as $row){
