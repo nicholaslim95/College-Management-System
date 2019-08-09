@@ -15,57 +15,18 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container">
-            <form class="form-inline" method="POST" action="compareCourses.php">
-                <div class="form-group">
-                    <table class="table table-hover">
-                        <tr>
-                            <?php
-                            require "db_connect.php"; // connection to database 
-
-                            echo "1st Course : <select name=cou1 id='c1' class=form-control onchange=AjaxFunction();>
-                            <option value=''>Select Course</option>";
-
-                            $sql2 = "SELECT * FROM courses"; // Query to collect data from table 
-
-                            foreach ($dbConn->query($sql2) as $row) {
-                                echo "<option value=$row[courseId]>$row[faculty] - $row[courseName]</option>";
-                            }
-                            ?>
-                        </tr>
-                        <tr>
-                            <?php
-                            require "db_connect.php"; // connection to database 
-
-                            echo "<br>2nd Course : <select name=cou2 id='c2' class=form-control onchange=AjaxFunction();>
-                            <option value=''>Select Course</option>";
-
-                            $sql2 = "SELECT * FROM courses"; // Query to collect data from table 
-
-                            foreach ($dbConn->query($sql2) as $row) {
-                                echo "<option value=$row[courseId]>$row[faculty] - $row[courseName]</option>";
-                            }
-                            ?>
-                        </tr>
-                        <tr>
-                        <input type="submit" value="Compare" class="btn btn-default" /> 
-                        </tr>
-                    </table>
-
-                </div>
-            </form>
-            <p>&nbsp;</p>
             <h3>
             <?php
             $shortlitsXML = new DOMDocument();
             $shortlitsXML->load('shortlists.xml');
 
-            $shortlistsXSL = new DOMDocument;
+            $shortlistsXSL = new DOMDocument();
             $shortlistsXSL->load('shortlists.xsl');
 
             $proc = new XSLTProcessor();
             $proc->importStyleSheet($shortlistsXSL);
 
-            echo $proc->transformToXML($shortlistsXML);
+            echo $proc->transformToXML($shortlitsXML);
             ?>
             </h3>
             <h3>

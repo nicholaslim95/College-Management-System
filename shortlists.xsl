@@ -27,9 +27,8 @@
                                 <xsl:value-of select="courseName" />
                             </td>
                             <td>
-                                <href a="compareCourse.php?id=">
-                                    Delete
-                                </href>
+                               
+                                <a class='btn btn-default' href='compareCourses.php?compare="<xsl:value-of select="courseId" />"'><xsl:value-of select="courseId" /></a>
                             </td>
                         </tr>
                     </xsl:for-each>

@@ -8,5 +8,8 @@ and open the template in the editor.
 <!DOCTYPE shortlists SYSTEM 'shortlists.dtd'>
 <?xml-stylesheet type="text/xsl" href="shortlists.xsl"?>
 <shortlists>
-    
+    <shortlist facultyCode="FOCS">
+        <courseId>RSD(Testing)</courseId>
+        <courseName>Software System development</courseName>
+    </shortlist>
 </shortlists>

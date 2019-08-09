@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -17,6 +12,14 @@ and open the template in the editor.
         <div class="container">
             <form class="form-inline" method="POST" action="shortlist.php">
                 <?php
+                include_once 'classes/Database.php';
+                include_once 'controllers/CoursesController.php';
+                include_once 'views/CoursesView.php';
+
+                $courses = new CoursesView();
+                $courses->showAllCourses();
+                
+                
                 require "db_connect.php"; // connection to database 
                 //delete row on button delete click and show alert
                 if (isset($_GET["short"])) {
