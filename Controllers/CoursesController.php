@@ -19,9 +19,9 @@ class CoursesController extends Database {
         $courseIdQuery = "SELECT courseId FROM courses WHERE faculty = '$facultyId'";
         $result = $this->connect()->query($courseIdQuery);
         $numRows = $result->rowCount();
-         foreach ($result as $row){
-                echo "<option value=$row[courseId]>$row[courseId]</option>";
-            }
+        foreach ($result as $row) {
+            echo "<option value=$row[courseId]>$row[courseId]</option>";
+        }
     }
 
 //

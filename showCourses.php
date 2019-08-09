@@ -19,7 +19,6 @@
                 $courses = new CoursesView();
                 $courses->showAllCourses();
                 
-                
                 require "db_connect.php"; // connection to database 
                 //delete row on button delete click and show alert
                 if (isset($_GET["short"])) {
@@ -28,27 +27,6 @@
                     echo "<script type='text/javascript'>alert(''.$courseid.' Add to shortlist.');</script>";
                 }
 
-                $sqlcourses = "SELECT * FROM courses";  // Query to collect data from table 
-                $result = $dbConn->query($sqlcourses);
-                if ($result->num_rows > 0) {
-                    echo "<table border='1' class=table><br />";
-                    echo "<tr><th colspan='4' style='text-align:center;'> All Courses</th></tr>";
-                    echo "<tr><th style='text-align:center;'>Course ID</th>"
-                    . "<th style='text-align:center;'>Course Name</th>"
-                    . "<th style='text-align:center;'>Faculty</th>"
-                    . "<th style='text-align:center;'>Action</th></tr>";
-                    foreach ($dbConn->query($sqlcourses) as $row) {
-                        echo "<tr>";
-                        echo "<td style='text-align:center;'>" . $row["courseId"] . " </td>";
-                        echo "<td style='text-align:center;'>" . $row["courseName"] . " </td>";
-                        echo "<td style='text-align:center;'>" . $row["faculty"] . " </td>";
-                        echo "<td style='text-align:center;'><a class='btn btn-default' href='showCourses.php?short=" . $row["courseId"] . "'>Shortlist</a></td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<p>&nbsp;</p>";
-                    echo "No Course.";
-                }
                 ?> 
 
         </div>
