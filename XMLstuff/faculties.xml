@@ -31,4 +31,8 @@ and open the template in the editor.
     <facultyCode/>
     <facultyName/>
   </faculty>
+  <faculty facultyCode="ad">
+    <facultyCode>ad</facultyCode>
+    <facultyName>ad</facultyName>
+  </faculty>
 </faculties>

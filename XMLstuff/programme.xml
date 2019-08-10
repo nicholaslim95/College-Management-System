@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE faculties SYSTEM "xmlstuff/programme.dtd">
+<?xml-stylesheet type="text/xsl" href="xmlstuff/programme.xsl"?>
+<programmes>
+  <programme programmeId="RSD">
+    <programmeName>IT</programmeName>
+    <programmeId>RSD</programmeId>
+    <programmeDesc>Systems Software Development</programmeDesc>
+    <MER>3Credits</MER>
+    <duration>3 Years</duration>
+    <programme programmeId="">
+      <programmeId/>
+      <programmeName/>
+      <programmeDesc/>
+      <MER>4 Credits</MER>
+      <duration>3 Years</duration>
+    </programme>
+    <programme programmeId="RSD">
+      <programmeId>RSD</programmeId>
+      <programmeName/>
+      <programmeDesc/>
+      <MER>4 Credits</MER>
+      <duration>3 Years</duration>
+    </programme>
+    <programme programmeId="RIT">
+      <programmeId>RIT</programmeId>
+      <programmeName>IT</programmeName>
+      <programmeDesc>Information Technology in Internet Technology</programmeDesc>
+      <MER>4 Credits</MER>
+      <duration>3 Years</duration>
+    </programme>
+  </programme>
+</programmes>

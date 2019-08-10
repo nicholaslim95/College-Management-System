@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT faculties (faculty)*>
+<!ELEMENT programme (programmeId, programDesc, MER, duration,programmeName)>
+<!ATTLIST programme programmeId ID #REQUIRED>
+<!ELEMENT programmeId (#PCDATA)>
+<!ELEMENT programDesc (#PCDATA)>
+<!ELEMENT MER (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT programmeName (#PCDATA)>
+
+
