@@ -60,7 +60,9 @@ if (isset($_POST['courseId']) and isset($_POST['courseName']) and isset($_POST['
     $courseName = $_POST['courseName'];
     $levelOfStudies = $_POST['levelOfStudy'];
     $facultyId = $_POST['facultyId'];
-    $query = "INSERT INTO courses (courseId, courseName, levelOfStudy, faculty) VALUES ('$courseId','$courseName','$levelOfStudies', '$facultyId');";
+    $creditHour = $_POST['createCourseCreditHour'];
+    $pricePerCredit = $_POST['createCoursePricePerCredit'];
+    $query = "INSERT INTO courses (courseId, courseName, levelOfStudy, faculty, creditHour, pricePerCredit) VALUES ('$courseId','$courseName','$levelOfStudies', '$facultyId', '$creditHour', '$pricePerCredit');";
 
     mysqli_query($dbConn, $query) or die(mysqli_error($dbConn));
 

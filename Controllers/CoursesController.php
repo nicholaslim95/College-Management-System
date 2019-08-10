@@ -117,5 +117,34 @@ class CoursesController extends Database {
             return $datas[] = $shortlists->courseId;
         }
     }
+    
+    //Jia Wei (Easier to find)
+    public function getCoursesBasedOnFacultyID() {
+        $facultyId = $_GET['editCourseFacultyId'];
+        $courseIdQuery = "SELECT courseId FROM courses WHERE faculty = '$facultyId'";
+        $result = $this->connect()->query($courseIdQuery);
+        $numRows = $result->rowCount();
+         foreach ($result as $row){
+                echo "<option value=$row[courseId]>$row[courseId]</option>";
+            }
+    }
 
+    //Jia Wei (Easier to find)
+    public function getCoursesBasedOnCourseId() {
+        $courseId = $_GET['selectCourseId'];
+        $courseIdQuery = "SELECT * FROM courses WHERE courseId= '$courseId'";
+        $result = $this->connect()->query($courseIdQuery);
+        $numRows = $result->rowCount();
+                    
+        if($numRows > 0){
+            foreach ($result as $row){
+                return $row['courseName'];
+            }
+            //1echo '<input  name="courseName" type="text" value="'.$result.'" ';
+        }
+    }
+    
+    public function getCoursesCreditHourAndPrice(){
+        
+    }
 }

@@ -54,6 +54,8 @@ and open the template in the editor.
 //                }
                 ?>
             </select></br>
+            How many credit hour this course has?: <input type="text" name="createCourseCreditHour" value="" /><br>
+            What is the price per credit hour? <input type="text" name="createCoursePricePerCredit" value="" /><br>
             <input type="submit" value="Submit" /></br></br></br>
         </form>
         <form>
@@ -73,32 +75,34 @@ and open the template in the editor.
 
         </form>
 
-        <form method="POST"> <!--action="addFacultyToDB.php"-->
+        <form method="GET"> <!--action="addFacultyToDB.php"-->
             Select a course <select name="selectCourseId" onchange="this.form.submit()">
+                <option value="" disabled selected>---Please select a course---</option>
                 <?php
                 include_once 'classes/Database.php';
                 include_once 'controllers/CoursesController.php';
                 $courseBasedOnFacultyId = new CoursesController();
                 
                 $courseBasedOnFacultyId->getCoursesBasedOnFacultyID();
-                //require('db_connect.php');
-                //session_start();
-                //$facultyId = $_SESSION["editCourseFacultyId"];
-//                $facultyId = $_GET['editCourseFacultyId'];
-//                $courseIdQuery = "SELECT courseId FROM courses WHERE faculty = '$facultyId'";
-//                foreach ($dbConn->query($courseIdQuery) as $row) {
-//                    echo "<option value=$row[courseId]>$row[courseId]</option>";
-//                }
+                
                 ?>
             </select></br>
-            Course name: <input type="text" name="courseName" value="" /><br>
+            Course name: <input type="text" name="courseName" value="<?php echo $courseBasedOnFacultyId->getCoursesBasedOnCourseId()?>" /><br>
             Current level of study:  <input type="text" name="levelOfStudy" value="" /> New level of study:<select name="dropDownListLevelOfStudy">
                 <option>Diploma</option>
                 <option>Degree</option>
                 <option>Master</option>
                 <option>PHD</option>
             </select><br>
-            <input type="submit" value="Submit" />
+            <!--<input type="submit" value="Submit" />-->
+        </form>
+        <form>
+            <h3>Calculate course price</h3>
+            <?php
+                include_once 'views/CoursesView.php';
+                $showCourses = new CoursesView();
+                $showCourses->showAllCoursesToCalculate();
+            ?>
         </form>
     </body>
 </html>

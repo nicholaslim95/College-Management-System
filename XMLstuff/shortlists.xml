@@ -13,4 +13,10 @@ and open the template in the editor.
   <shortlist courseId="REI">
     <courseId>REI</courseId>
   </shortlist>
+  <shortlist courseId="CUL">
+    <courseId>CUL</courseId>
+  </shortlist>
+  <shortlist courseId="RST">
+    <courseId>RST</courseId>
+  </shortlist>
 </shortlists>
