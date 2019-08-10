@@ -74,7 +74,7 @@ and open the template in the editor.
         </form>
 
         <form method="POST"> <!--action="addFacultyToDB.php"-->
-            Select a course <select name="courseId" onchange="this.form.submit()">
+            Select a course <select name="selectCourseId" onchange="this.form.submit()">
                 <?php
                 include_once 'classes/Database.php';
                 include_once 'controllers/CoursesController.php';
