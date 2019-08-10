@@ -41,7 +41,7 @@
                                 <xsl:value-of select="facultyName" />
                             </td>
                             <td>
-                                <href a="addFacultyToDB.php?id=">
+                                <href a="compareCourses.php?id=">
                                     Delete
                                 </href>
                             </td>

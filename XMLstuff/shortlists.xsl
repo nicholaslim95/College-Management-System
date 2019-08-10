@@ -11,24 +11,20 @@
                 <h3>Shortlist Courses</h3>
                 <table border = "1" class="table table-hover">
                     <tr>
-                        <th>No.</th>
-                        <th>Course ID</th>
-                        <th>Course name</th>
+                        <th style='text-align:center'>No.</th>
+                        <th style='text-align:center'>Course ID</th>
+                        <th style='text-align:center'>Action</th>
                     </tr>
                     <xsl:for-each select="//shortlist">
                         <tr>
-                            <td>
+                            <td style='text-align:center'>
                                 <xsl:number />
                             </td>
-                            <td>
+                            <td style='text-align:center'>
                                 <xsl:value-of select="courseId" />
                             </td>
-                            <td>
-                                <xsl:value-of select="courseName" />
-                            </td>
-                            <td>
-                               
-                                <a class='btn btn-default' href='compareCourses.php?compare="<xsl:value-of select="courseId" />"'><xsl:value-of select="courseId" /></a>
+                            <td style='text-align:center'>
+                               <a class='btn btn-default' href='compareCourses.php'>Delete</a>
                             </td>
                         </tr>
                     </xsl:for-each>

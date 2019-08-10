@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="container">
-            <form class="form-inline" method="POST" action="shortlist.php">
+            <form class="form-inline" method="POST" action="#">
                 <?php
                 include_once 'classes/Database.php';
                 include_once 'controllers/CoursesController.php';
@@ -18,28 +18,18 @@
 
                 $courses = new CoursesView();
                 $courses->showAllCourses();
-                
-                require "db_connect.php"; // connection to database 
-                //delete row on button delete click and show alert
-                if (isset($_GET["short"])) {
-                    $courseid = $_GET["short"];
-                    setcookie(course1, $cookie_value);
-                    echo "<script type='text/javascript'>alert(''.$courseid.' Add to shortlist.');</script>";
-                }
-
+                $courses->insertIntoXML();
                 ?> 
-
-        </div>
-        <div>
+            </form>
             <table class="table">
                 <tr>
                     <td align="center">
-                        <input type="button" value="Compare Courses" class="btn btn-default" id="btnCompare" 
-                               onClick="document.location.href = 'compareCourses.php'"
+                         <a name="type" style="display: none">normal</a>
+                         <input type="submit" name="submit" value="Compare" class="btn btn-default"/>
                     </td>
                     <td align="center">
                         <input type="button" value="View Shortlist" class="btn btn-default" id="btnShortlist" 
-                               onClick="document.location.href = 'viewShortlist.php'"
+                               onClick="document.location.href = 'viewShortlist.php'"/>
                     </td>
                 </tr>
             </table>

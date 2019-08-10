@@ -16,52 +16,25 @@ and open the template in the editor.
     <body>
         <div class="container">
             <h3>
-            <?php
-            $shortlitsXML = new DOMDocument();
-            $shortlitsXML->load('shortlists.xml');
-
-            $shortlistsXSL = new DOMDocument();
-            $shortlistsXSL->load('shortlists.xsl');
-
-            $proc = new XSLTProcessor();
-            $proc->importStyleSheet($shortlistsXSL);
-
-            echo $proc->transformToXML($shortlitsXML);
-            ?>
-            </h3>
-            <h3>
                 <?php
-                //delete row on button delete click and show alert
-                if (isset($_GET["short"])) {
-                    $courseid = $_GET["short"];
-                    setcookie(course1, $cookie_value);
-                    echo "<script type='text/javascript'>alert(''.$courseid.' has been deleted.');</script>";
-                }
+                include_once 'classes/Database.php';
+                include_once 'controllers/CoursesController.php';
+                include_once 'views/CoursesView.php';
 
-                $sqlcourses = "SELECT * FROM courses";  // Query to collect data from table 
-                echo "Courses : ";
-                $result = $dbConn->query($sqlcourses);
-                if ($result->num_rows > 0) {
-                    echo "<table border='1' class=table><br />";
-                    echo "<p>&nbsp;</p>";
-                    echo "<tr><th style='text-align:center;'>Course ID</th>"
-                    . "<th style='text-align:center;'>Course Name</th>"
-                    . "<th style='text-align:center;'>Faculty</th>"
-                    . "<th style='text-align:center;'>Action</th></tr>";
-                    foreach ($dbConn->query($sqlcourses) as $row) {
-                        echo "<tr>";
-                        echo "<td style='text-align:center;'>" . $row["courseId"] . " </td>";
-                        echo "<td style='text-align:center;'>" . $row["courseName"] . " </td>";
-                        echo "<td style='text-align:center;'>" . $row["faculty"] . " </td>";
-                        echo "<td style='text-align:center;'><a class='btn btn-default' href='compareCourses.php?short=" . $row["courseId"] . "'>Shortlist</a></td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<p>&nbsp;</p>";
-                    echo "No Course.";
-                }
+                $courses = new CoursesView();
+                $courses->showXMLtable();
                 ?>
             </h3>
+        </div>
+        <div>
+            <table class="table">
+                <tr>
+                    <td align="center">
+                        <input type="button" value="Compare Shortlist" class="btn btn-default" id="btncompShortlist" 
+                               onClick="document.location.href = 'compareCourses.php?type=compareShortlist'"/>
+                    </td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>

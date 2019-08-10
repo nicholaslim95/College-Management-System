@@ -24,7 +24,7 @@ class FacultyController extends Database {
             $xml = new DOMDocument("1.0");
             $xml->preserveWhiteSpace = false;
             $xml->formatOutput = true;
-            $xml->load("faculties.xml");
+            $xml->load("xmlstuff/faculties.xml");
 
             $rootTag = $xml->getElementsByTagName("faculties")->item(0);
 
@@ -42,7 +42,7 @@ class FacultyController extends Database {
 
             $rootTag->appendChild($dataTag);
 
-            $xml->save("faculties.xml");
+            $xml->save("xmlstuff/faculties.xml");
 
             //uploadToMySql($xml);
         }
