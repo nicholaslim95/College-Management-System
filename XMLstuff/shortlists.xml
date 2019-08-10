@@ -7,16 +7,4 @@ and open the template in the editor.
 <!DOCTYPE shortlists SYSTEM "shortlists.dtd">
 <?xml-stylesheet type="text/xsl" href="shortlists.xsl"?>
 <shortlists>
-  <shortlist courseId="RSD">
-    <courseId>RSD</courseId>
-  </shortlist>
-  <shortlist courseId="REI">
-    <courseId>REI</courseId>
-  </shortlist>
-  <shortlist courseId="CUL">
-    <courseId>CUL</courseId>
-  </shortlist>
-  <shortlist courseId="RST">
-    <courseId>RST</courseId>
-  </shortlist>
-</shortlists>
+<shortlist courseId="REI"><courseId>REI</courseId></shortlist></shortlists>

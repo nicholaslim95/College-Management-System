@@ -64,9 +64,9 @@ class CoursesView extends CoursesController {
                 array_push($fee, $data['fee']);
             }
             require 'lib/nusoap.php';
-            $client = new nusoap_client("http://localhost:8000/college-management-system/web_service/service.php?wsdl");
+            $client = new nusoap_client("http://localhost:/college-management-system/web_service/service.php?wsdl");
             $cheapestFee = $client->call('compareFee', array("course1Fee" => $fee[0], "course2Fee" => $fee[1]));
-            echo "</tr><tr><td colspan='3' style='text-align:center;'>Cheapest :" . $cheapestFee . "</td>";
+            echo "</tr><tr><td colspan='3' style='text-align:center;'>Cheapest :" . $fee[0] . "</td>";
         } else {
             echo "<td style='text-align:center;'>Please Choose Course</td>";
         }
