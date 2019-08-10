@@ -55,7 +55,7 @@ class CoursesController extends Database {
                 }
             } else {
                 //no course choosed
-                return $data;
+                return null;
             }
         }
     }
@@ -90,10 +90,6 @@ class CoursesController extends Database {
             echo "<script type='text/javascript'>alert(''.$courseIdForXML.' has been deleted.');</script>";
             //refresh page
             header("Refresh:0");
-        }else if (!empty($_GET['short'])){
-            echo '<script language="javascript">';
-            echo 'alert("Shortlist course already exist")';
-            echo '</script>';
         }
     }
 

@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="container">
-            <form class="form-inline" method="POST" action="#">
+            <form class="form-inline" method="POST" action="compareCourses.php">
                 <?php
                 include_once 'classes/Database.php';
                 include_once 'controllers/CoursesController.php';
