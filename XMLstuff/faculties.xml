@@ -15,8 +15,8 @@ and open the template in the editor.
     <facultyCode>FOES</facultyCode>
     <facultyName>Faculty of Eating Spaghetti</facultyName>
   </faculty>
-  <faculty facultyCode="FOCS">
-    <facultyCode>FOCS</facultyCode>
-    <facultyName>ghghg</facultyName>
+  <faculty facultyCode="FAFB">
+    <facultyCode>FAFB</facultyCode>
+    <facultyName>Faculty of Finance</facultyName>
   </faculty>
 </faculties>

@@ -47,5 +47,16 @@ class FacultyController extends Database {
             //uploadToMySql($xml);
         }
     }
+    
+    public function insertIntoDatabase() {
+        if (isset($_POST['facultyCode']) and isset($_POST['facultyName'])) {
+            $facultyCode = $_POST['facultyCode'];
+            $facultyName = $_POST['facultyName'];
+
+            $query = "INSERT INTO faculties (facultyCode, facultyName) VALUES ('$facultyCode','$facultyName');";
+            
+            $result = $this->connect()->query($query);
+        }
+    }
 
 }

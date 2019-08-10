@@ -24,6 +24,7 @@ and open the template in the editor.
 
             $faculty->insertIntoXML();
             $faculty->showXMLtable();
+            $faculty->insertIntoDatabase();
             ?>
             </br></br></br>
         </form>
