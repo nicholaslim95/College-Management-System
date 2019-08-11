@@ -1,5 +1,5 @@
 <?php
-
+// @author: Low Teck Cheng
 class BranchesController extends Database {
 
     public function getBranches() {

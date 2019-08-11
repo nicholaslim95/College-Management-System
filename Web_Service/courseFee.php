@@ -1,5 +1,5 @@
 <?php
-
+// @author: Kee Siang Hock
 class courseFee {
 
     private $course1Fee;

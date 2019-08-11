@@ -1,5 +1,5 @@
 <?php
-
+// @author: Kee Siang Hock
 class CoursesController extends Database {
 
     public function getCourses() {
