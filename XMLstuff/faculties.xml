@@ -3,6 +3,7 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+author: Lim Jia Wei
 -->
 <!DOCTYPE faculties SYSTEM "xmlstuff/faculties.dtd">
 <?xml-stylesheet type="text/xsl" href="xmlstuff/faculties.xsl"?>
@@ -15,9 +16,9 @@ and open the template in the editor.
     <facultyCode>FOES</facultyCode>
     <facultyName>Faculty of Eating Spaghetti</facultyName>
   </faculty>
-  <faculty facultyCode="FOCS">
-    <facultyCode>FOCS</facultyCode>
-    <facultyName>ghghg</facultyName>
+  <faculty facultyCode="FAFB">
+    <facultyCode>FAFB</facultyCode>
+    <facultyName>Faculty of Finance</facultyName>
   </faculty>
   <faculty facultyCode="ad">
     <facultyCode>ad</facultyCode>

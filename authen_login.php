@@ -1,4 +1,9 @@
 <?php
+/**
+ * Description of FacultyView
+ *
+ * @author Lim Jia Wei
+ */
     require('db_connect.php');
 
     if (isset($_POST['user_id']) and isset($_POST['user_pass'])) {

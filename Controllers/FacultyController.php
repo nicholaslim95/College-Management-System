@@ -3,7 +3,7 @@
 /**
  * Description of FacultyController
  *
- * @author LJW
+ * @author Lim Jia Wei
  */
 class FacultyController extends Database {
 
@@ -21,19 +21,21 @@ class FacultyController extends Database {
 
     public function insertIntoXML() {
         if (isset($_POST['submitFaculty'])) {
-            $xml = new DOMDocument("1.0");
-            $xml->preserveWhiteSpace = false;
-            $xml->formatOutput = true;
-            $xml->load("xmlstuff/faculties.xml");
+//            To set settings on xml document
+//            Making it more readable
+            $facultyxml = new DOMDocument("1.0");
+            $facultyxml->preserveWhiteSpace = false;
+            $facultyxml->formatOutput = true;
+            $facultyxml->load("xmlstuff/faculties.xml");
 
-            $rootTag = $xml->getElementsByTagName("faculties")->item(0);
+            $rootTag = $facultyxml->getElementsByTagName("faculties")->item(0);
 
             $facultyCodeForXML = $_POST['facultyCode'];
-            $dataTag = $xml->createElement("faculty");
-            $facultyAttribute = $xml->createAttribute('facultyCode');
+            $dataTag = $facultyxml->createElement("faculty");
+            $facultyAttribute = $facultyxml->createAttribute('facultyCode');
             $facultyAttribute->value = $facultyCodeForXML;
-            $facultyCodeTag = $xml->createElement("facultyCode", $_POST['facultyCode']);
-            $facultyNameTag = $xml->createElement("facultyName", $_POST['facultyName']);
+            $facultyCodeTag = $facultyxml->createElement("facultyCode", $_POST['facultyCode']);
+            $facultyNameTag = $facultyxml->createElement("facultyName", $_POST['facultyName']);
 
 
             $dataTag->appendChild($facultyCodeTag);
@@ -42,9 +44,19 @@ class FacultyController extends Database {
 
             $rootTag->appendChild($dataTag);
 
-            $xml->save("xmlstuff/faculties.xml");
+            $facultyxml->save("xmlstuff/faculties.xml");
 
-            //uploadToMySql($xml);
+        }
+    }
+    
+    public function insertIntoDatabase() {
+        if (isset($_POST['facultyCode']) and isset($_POST['facultyName'])) {
+            $facultyCode = $_POST['facultyCode'];
+            $facultyName = $_POST['facultyName'];
+
+            $query = "INSERT INTO faculties (facultyCode, facultyName) VALUES ('$facultyCode','$facultyName');";
+            
+            $result = $this->connect()->query($query);
         }
     }
 

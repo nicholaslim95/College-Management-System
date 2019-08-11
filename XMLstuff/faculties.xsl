@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-    Document   : Food.xsl
-    Created on : July 16, 2019, 4:17 PM
-    Author     : TARUC
-    Description:
-        Purpose of transformation follows.
--->
-
+    <!--author : Lim Jia Wei-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="html"/>
 
-    <!-- TODO customize transformation rules 
-         syntax recommendation http://www.w3.org/TR/xslt 
-    -->
     <xsl:template match="/">
         <html>
             <head>
@@ -28,8 +17,6 @@
                         <th>Faculty name</th>
                     </tr>
                     <xsl:for-each select="//faculty">
-                        <!--<xsl:if  test="position() &gt;= 3 and position() &lt;= 5"> -->
-                        <!--<xsl:if test="@type='vegetable' or @type='fruit' ">-->
                         <tr>
                             <td>
                                 <xsl:number />
@@ -46,8 +33,6 @@
                                 </href>
                             </td>
                         </tr>
-                        <!--</xsl:if>-->
-<!--                        </xsl:if>-->
                     </xsl:for-each>
                 </table>
             </body>
