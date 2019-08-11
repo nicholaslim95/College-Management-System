@@ -3,23 +3,27 @@
 class CoursesController extends Database {
 
     public function getCourses() {
-        $type;
-        $normal = "normal";
-        if (isset($_POST['type'])) {
-            $type = $_POST['type'];
-        } else {
-            $type = 'normal';
-        }
-        if (strcmp($type, $normal)) {
-            $sql = "SELECT * FROM courses";
-        } else {
-            $xml = simplexml_load_file("xmlstuff/shortlists.xml") or die("Error: Cannot create object");
+
+        $xml = simplexml_load_file("xmlstuff/shortlists.xml") or die("Error: Cannot create object");
+
+
+
+        if (!isset($_GET['type'])) {
             $sql = "SELECT * FROM courses WHERE courseId NOT IN ( ";
             foreach ($xml->children() as $shortlists) {
                 $sql = $sql . "'" . $shortlists->courseId . "', ";
             }
             $sql = $sql . " '' )";
+        } elseif ($_GET['type'] == 'compareShortlist') {
+            $sql = "SELECT * FROM courses WHERE courseId IN ( ";
+            foreach ($xml->children() as $shortlists) {
+                $sql = $sql . "'" . $shortlists->courseId . "', ";
+            }
+            $sql = $sql . " '' )";
+        } else {
+            $sql = "SELECT * FROM courses";
         }
+
         $result = $this->connect()->query($sql);
         $numRows = $result->rowCount();
         if ($numRows > 0) {
@@ -44,14 +48,21 @@ class CoursesController extends Database {
         //got 2 courses id to compare
         if (isset($_POST['submit'])) {
             if (isset($_POST['c1']) && isset($_POST['c2'])) {
-                $sql = "SELECT * FROM courses WHERE courseId='" . $_POST['c1'] . "' OR courseId='" . $_POST['c2'] . "'";
-                $result = $this->connect()->query($sql);
-                $numRows = $result->rowCount();
-                if ($numRows > 0) {
-                    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                        $data[] = $row;
+
+
+                if ($_POST['c1'] != $_POST['c2']) {
+                    $sql = "SELECT * FROM courses WHERE courseId='" . $_POST['c1'] . "' OR courseId='" . $_POST['c2'] . "'";
+                    $result = $this->connect()->query($sql);
+                    $numRows = $result->rowCount();
+                    if ($numRows > 0) {
+                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                            $data[] = $row;
+                        }
+                        return $data;
                     }
-                    return $data;
+                } else {
+                    echo "<script type='text/javascript'>alert('Cannot choose the same course');</script>";
+                    header("Refresh:0");
                 }
             } else {
                 //no course choosed

@@ -3,7 +3,7 @@
 /**
  * Description of FacultyController
  *
- * @author LJW
+ * @author Lim Jia Wei
  */
 class FacultyController extends Database {
 

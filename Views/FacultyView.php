@@ -3,7 +3,7 @@
 /**
  * Description of FacultyView
  *
- * @author LJW
+ * @author Lim Jia Wei
  */
 class FacultyView extends FacultyController {
 

@@ -15,5 +15,41 @@ class ProgrammeController extends Database {
             $result = $this->connect()->query($query);
         }
     }
+    
+        public function insertIntoXML() {
+        if (isset($_POST['submitProgrammeInfo'])) {
+            $xml = new DOMDocument("1.0");
+            $xml->preserveWhiteSpace = false;
+            $xml->formatOutput = true;
+            $xml->load("xmlstuff/programme.xml");
+
+            $rootTag = $xml->getElementsByTagName("programme")->item(0);
+
+            $programmeIdForXML = $_POST['ProgrammeID'];
+            $dataTag = $xml->createElement("programme");
+            $programmeAttribute = $xml->createAttribute('programmeId');
+            $programmeAttribute->value = $programmeIdForXML;
+            $programmeIdTag = $xml->createElement("programmeId", $_POST['ProgrammeID']);
+            $programmeNameTag = $xml->createElement("programmeName", $_POST['ProgrammeName']);
+            $programmeDescTag = $xml->createElement("programmeDesc", $_POST['ProgrammeDesc']);
+            $MERTag = $xml->createElement("MER", $_POST['MER']);
+            $durationTag = $xml->createElement("duration", $_POST['duration']);
+
+
+            $dataTag->appendChild($programmeIdTag);
+            $dataTag->appendChild($programmeNameTag);
+            $dataTag->appendChild($programmeDescTag);
+            $dataTag->appendChild($MERTag);
+            $dataTag->appendChild($durationTag);
+            $dataTag->appendChild($programmeAttribute);
+
+            $rootTag->appendChild($dataTag);
+
+            $xml->save("xmlstuff/programme.xml");
+
+            //uploadToMySql($xml);
+        }
+    }
+    
 }
     
