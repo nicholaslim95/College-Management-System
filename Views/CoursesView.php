@@ -1,5 +1,5 @@
 <?php
-
+// @author: Kee Siang Hock
 class CoursesView extends CoursesController {
 
     public function showAllCourses() {

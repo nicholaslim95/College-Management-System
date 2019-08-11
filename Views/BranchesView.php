@@ -1,5 +1,5 @@
 <?php
-
+// @author: Low Teck Cheng
 class BranchesView extends BranchesController {
 
     public function showAllBranches() {
