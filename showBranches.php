@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,23 +14,23 @@
             <form class="form-inline" method="POST" action="#">
                 <?php
                 include_once 'classes/Database.php';
-                include_once 'controllers/CoursesController.php';
-                include_once 'views/CoursesView.php';
+                include_once 'controllers/BranchesController.php';
+                include_once 'views/BranchesView.php';
 
-                $courses = new CoursesView();
-                $courses->showAllCourses();
-                $courses->insertIntoXML();
+                $branches = new BranchesView();
+                $branches->showAllBranches();
+                $branches->insertIntoXML();
                 ?> 
             </form>
             <table class="table">
                 <tr>
                     <td align="center">
                          <input type="button" value="View Shortlist" class="btn btn-default" id="btnShortlist" 
-                               onClick="document.location.href = 'compareCourses.php?type=normal'"/>
+                               onClick="document.location.href = 'compareBranches.php?type=normal'"/>
                     </td>
                     <td align="center">
                         <input type="button" value="View Shortlist" class="btn btn-default" id="btnShortlist" 
-                               onClick="document.location.href = 'viewShortlist.php?shortlistType=Courses'"/>
+                               onClick="document.location.href = 'viewShortlist.php?shortlistType=Branches'"/>
                     </td>
                 </tr>
             </table>

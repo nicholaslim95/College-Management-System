@@ -18,11 +18,23 @@ and open the template in the editor.
             <h3>
                 <?php
                 include_once 'classes/Database.php';
+                include_once 'controllers/BranchesController.php';
                 include_once 'controllers/CoursesController.php';
+                include_once 'views/BranchesView.php';
                 include_once 'views/CoursesView.php';
 
-                $courses = new CoursesView();
-                $courses->showXMLtable();
+                if (isset($_GET['shortlistType'])) {
+                    if ($_GET['shortlistType'] == 'Courses') {
+                        $courses = new CoursesView();
+                        $courses->showXMLtable();
+                    } else {
+                        $branches = new BranchesView();
+                        $branches->showXMLtable();
+                    }
+                } else {
+                    $courses = new CoursesView();
+                    $courses->showXMLtable();
+                }
                 ?>
             </h3>
         </div>
@@ -30,8 +42,27 @@ and open the template in the editor.
             <table class="table">
                 <tr>
                     <td align="center">
-                        <input type="button" value="Compare Shortlist" class="btn btn-default" id="btncompShortlist" 
-                               onClick="document.location.href = 'compareCourses.php?type=compareShortlist'"/>
+                        <?php
+                        if (isset($_GET['shortlistType'])) {
+                            if ($_GET['shortlistType'] == 'Courses') {
+                                ?>
+                                <input type="button" value="Compare Shortlist" class="btn btn-default" id="btncompShortlist" 
+                                       onClick="document.location.href = 'compareCourses.php?type=compareShortlist'"/>
+                                       <?php
+                                   } else {
+                                       ?>
+                                <input type="button" value="Compare Shortlist" class="btn btn-default" id="btncompShortlist" 
+                                       onClick="document.location.href = 'compareBranches.php?type=compareBranches'"/>
+                                       <?php
+                                   }
+                               } else {
+                                   ?> 
+                            <input type="button" value="Compare Shortlist" class="btn btn-default" id="btncompShortlist" 
+                                   onClick="document.location.href = 'compareCourses.php?type=compareShortlist'"/>                           
+                                   <?php
+                               }
+                               ?>
+
                     </td>
                 </tr>
             </table>
