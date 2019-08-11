@@ -3,6 +3,7 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+author : Kevin Fredrick V.De Rozario
 -->
 <html>
     <head>
@@ -14,7 +15,7 @@ and open the template in the editor.
     </head>
     <body>
         <form method="POST">
-        <p>Staff Faculty Page</p>
+        <h3>Staff Faculty Page</h3>
         Enter programme name:               <input  type="text" name="ProgrammeName" value="" align="" /><br />
         Enter programme ID:                 <input type="text" name="ProgrammeID" value="" /><br />
         Enter programme Description:        <input type="text" name="ProgrammeDesc" value="" /><br />

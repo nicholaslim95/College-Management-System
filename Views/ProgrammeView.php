@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Description of FacultyController
+ *
+ * @author Kevin Fredrick V.De Rozario
+ */
+
 class ProgrammeView extends ProgrammeController {
     
         public function showAllProgramme() {

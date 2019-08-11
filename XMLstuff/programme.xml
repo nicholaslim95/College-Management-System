@@ -34,5 +34,19 @@ and open the template in the editor.
       <MER>4 Credits</MER>
       <duration>3 Years</duration>
     </programme>
+    <programme programmeId="DBU">
+      <programmeId>DBU</programmeId>
+      <programmeName>Business</programmeName>
+      <programmeDesc>Business Studies</programmeDesc>
+      <MER>3 Credits</MER>
+      <duration>3 Years</duration>
+    </programme>
+    <programme programmeId="Engineering">
+      <programmeId>Engineering</programmeId>
+      <programmeName>MES</programmeName>
+      <programmeDesc>Engineering Studies</programmeDesc>
+      <MER>5 Credits including Additional Mathemathics</MER>
+      <duration>3 Years</duration>
+    </programme>
   </programme>
 </programmes>

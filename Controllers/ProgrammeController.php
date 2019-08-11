@@ -1,4 +1,11 @@
+
 <?php
+
+/**
+ * Description of FacultyController
+ *
+ * @author Kevin Fredrick V.De Rozario
+ */
 
 class ProgrammeController extends Database {
 
