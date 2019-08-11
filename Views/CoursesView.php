@@ -94,14 +94,14 @@ class CoursesView extends CoursesController {
             echo "<td style='text-align:center;'>" . $data['levelOfStudy'] . " </td>";
             echo "<td style='text-align:center;'><a class='btn btn-default' href='calculateCoursePrice.php?short=" . $data['courseId'] . "'>Calculate course price</a></td>";
             echo "</tr>";
-        }
+}
         
         
     }
     
     public function showTableOfCalculatedCoursePrice() {
         $fee = array();
-        $datas = $this->getCompare(); //aray inside got 2 values
+        $datas = $this->getCoursesBasedOnCourseId(); //aray inside got 2 values
         echo "<tr><td style='text-align:center;'>Course ID</td>";
         if (!empty($datas)) {
             foreach ($datas as $data) {
